@@ -111,7 +111,6 @@ const calcDisplaySummary = function (acc) {
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${Math.trunc(interest)}€`;
 };
-
 const creatUsername = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -122,14 +121,12 @@ const creatUsername = function (accs) {
   });
 };
 creatUsername(accounts);
-
 //Event handler
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
   //Prevent from auto reloading when clicl(prevent form from submitting)
   e.preventDefault();
-
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
@@ -164,7 +161,6 @@ btnTransfer.addEventListener('click', function (e) {
     //Doing transfer
     currentAccount.movements.push(-amount);
     receiversAccount.movements.push(amount);
-
     //update UI
     updateUI(currentAccount);
   }
